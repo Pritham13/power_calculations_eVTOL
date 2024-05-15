@@ -34,7 +34,7 @@ def calculate_battery_pack_weight(cell_weight,cooling_system_weight):
         tuple: (num_cells_parallel, num_cells_series)
     """
     total_cell_weight = (num_cells_parallel + num_cells_series) * cell_weight
-    total_weight = (total_cell_weight*0.4)+total_cell_weight
+    total_weight = (total_cell_weight*cooling_system_weight*0.01)+total_cell_weight
     return total_weight
 # Example usage
 cell_nominal_voltage = 3.7
