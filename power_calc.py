@@ -48,7 +48,7 @@ eta_total = 0.75  # Total system efficiency (from Table 2.2)
 v_inf = 51.44  # Free-stream velocity in m/s (180 km/h, from Table 2.3)
 
 battery_power_cruise = calculate_battery_power(mtow, l_d_max, eta_total, v_inf)
-print(f"Power absorbed from the battery during cruise: {battery_power_cruise:.2f} kW")
+print(f"Power absorbed from the battery during cruise: {battery_power_cruise*0.001:.2f} kW")
 
 # Vertical flight power calculations
 aircraft_weight = mtow  # Aircraft weight in N
@@ -61,7 +61,7 @@ is_ducted = True  # Assuming open rotors
 fuselage_correction_factor = 1.03  # Correction factor for interference from the fuselage (from report)
 
 battery_power_vertical_takeoff = calculate_vertical_flight_power(aircraft_weight, disk_area, air_density, climb_rate, fom, eta_vertical, is_ducted, fuselage_correction_factor)
-print(f"Power absorbed from the battery during vertical takeoff: {battery_power_vertical_takeoff*0.0001:.2f} kW")
+print(f"Power absorbed from the battery during vertical takeoff: {battery_power_vertical_takeoff*0.001:.2f} kW")
 
-total_power = battery_power_cruise + (battery_power_vertical_takeoff*0.0001)
+total_power = battery_power_cruise*0.001 + (battery_power_vertical_takeoff*0.001)
 print(f"Total power absorbed from the battery: {total_power:.2f} kW")
